@@ -25,13 +25,14 @@
 // td.innerHTML =data;
 // return td;
 // }
-function buildTable(){
-  var tbl = document.getElementById("tblVehicles");
-  for(var i=0;i<vehicles.length;i++){
-      //in the first iterataion.
-     var row= buildTableRow(vehicles[i]);
-     tbl.appendChild(row);
-  }
+function buildTable() {
+    var tbl = document.getElementById("tblVehicles");
+    for (var i = 0; i < vehicles.length; i++) {
+        //in the first iterataion.
+        var row = buildTableRow(vehicles[i]);
+      //  row = addAlternateColorsToRow(row,i);
+        tbl.appendChild(row);
+    }
 
 }
 
@@ -39,6 +40,9 @@ function buildTable(){
 function buildTableRow(vehicle) {
     var row = document.createElement("tr");
     var yearColumn = buildColumn(vehicle.Year);
+    //Extending the requriements
+    changeColorBasedOnYear(vehicle.Year,yearColumn);
+   
     var makeColumn = buildColumn(vehicle.Make);
     var modelColumn = buildColumn(vehicle.Model);
     //append three columns to row
@@ -55,3 +59,56 @@ function buildColumn(data) {
 }
 
 buildTable();
+
+
+function checkEven(number) {
+    if (number % 2 == 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function addAlternateColors(row,i) {
+    if (checkEven(i)) {
+        row.style.backgroundColor = "grey";
+    }
+    else {
+        row.style.backgroundColor = "yellow";
+    }
+    return row;
+}
+
+function changeColorBasedOnYear(data,column){
+    if(data>2015){
+        column.style.backgroundColor="Green";
+    }
+   else if(data>2013 && data<=2015){
+        column.style.backgroundColor="yellow";
+    }
+    else {
+        column.style.backgroundColor="orange";
+    }
+
+    return column;
+}
+
+
+function attachEvents(){
+    //first get the reference of the element
+    //ex. btn=document.getElementById("btnColor");
+ btn=document.getElementById("btnColor");
+ btn.addEventListener("click",changeColor)
+    
+}
+
+//Changing the color of the table.
+function changeColor() {
+    //Check whether the given color is coming here or not.
+    //Get the table /// <reference path="" />
+    var tbl = document.getElementById("tblVehicles");
+    console.log(tbl.style);
+    tbl.style.backgroundColor = "green";
+}
+attachEvents();
