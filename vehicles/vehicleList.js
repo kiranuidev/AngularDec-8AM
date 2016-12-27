@@ -98,7 +98,7 @@ function changeColorBasedOnYear(data,column){
 function attachEvents(){
     //first get the reference of the element
     //ex. btn=document.getElementById("btnColor");
- btn=document.getElementById("btnColor");
+var btn=document.getElementById("btnColor");
  btn.addEventListener("click",changeColor)
     
 }
