@@ -33,7 +33,6 @@ function buildTable() {
       //  row = addAlternateColorsToRow(row,i);
         tbl.appendChild(row);
     }
-
 }
 
 
