@@ -3,9 +3,10 @@
     function headerCtrlFn(){
       var vm=this;
         vm.brandName="Good Services";
-        vm.navItems =["Login","Register","Cart","Logout"];
+        vm.navItems =["Login","Register","Products","Cart","Logout"];
         vm.loginTemplate ="app/login/login.tpl.html";
           vm.registerTemplate ="app/register/register.tpl.html";
+        vm.productsTemplate ="app/products/products.tpl.html";
         
         vm.loadView = function(param){
           console.log(param); 
@@ -14,6 +15,9 @@
             }
             else if(param=="Register"){
                 vm.loadTemplate=vm.registerTemplate;
+            }
+            else if(param=="Products"){
+               vm.loadTemplate=vm.productsTemplate; 
             }
         };
     }
