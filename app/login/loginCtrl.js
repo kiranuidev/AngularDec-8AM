@@ -1,7 +1,8 @@
 (function(){
-  function loginCtrl(){
-      
+  function loginCtrl($scope){
+      //$scope.username="kiran";
+      $scope.user={};
   }
     angular.module("login")
-    .controller("loginCtrl",[loginCtrl]);    
+    .controller("loginCtrl",["$scope",loginCtrl]);    
 })();
