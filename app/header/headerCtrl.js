@@ -1,6 +1,6 @@
 (function(){
     
-    function headerCtrlFn(){
+    function headerCtrlFn($scope){
       var vm=this;
         vm.brandName="Good Services";
         vm.navItems =["Login","Register","Products","Cart","Logout"];
@@ -20,7 +20,10 @@
                vm.loadTemplate=vm.productsTemplate; 
             }
         };
+        $scope.type=["video"];
+        $scope.url="../videos/demo1.mp4";
+        
     }
     angular.module("header")
-    .controller("headerCtrl",[headerCtrlFn]);
+    .controller("headerCtrl",["$scope",headerCtrlFn]);
 })();
