@@ -1,10 +1,16 @@
-<form class="form-horizontal" ng-controller="registerCtrl as rc">
+<form name="registerForm" class="form-horizontal" ng-controller="registerCtrl as rc">
     <div class="form-group">
         <label class="control-label col-xs-2">First Name</label>
         <div class="col-xs-10">
             <input type="text"
                    ng-model="rc.user.firstName"
-                   class="form-control"  placeholder="First Name">
+                   class="form-control" 
+                   name="firstName"
+                   placeholder="First Name"
+                   ng-required="true"
+                   ng-pattern ="/^[a-zA-Z \s]+$/">
+            <p ng-show="registerForm.firstName.$error.required && registerForm.firstName.$dirty">First Name required.</p>
+            <p ng-show="registerForm.firstName.$error.pattern">First Name should contain alphabets only.</p>
         </div>
     </div>
     <div class="form-group">
@@ -14,7 +20,15 @@
                    cm-numbers-only
                    maxnumbers="10"
                    ng-model="rc.user.phoneNumber"
-                   class="form-control"  placeholder="Phone Number">
+                   name="phone"
+                   class="form-control"
+                   ng-required="true"
+                   ng-minlength ="10"
+                   ng-maxlength ="10";
+                   placeholder="Phone Number">
+            <p ng-show="registerForm.phone.$error.required">Phone number required</p>
+              <p ng-show="registerForm.phone.$error.minlength">Phone number should 10 digits</p>
+            <p ng-show="registerForm.phone.$error.maxlength">Phone number should 10 digits</p>
         </div>
     </div>
      <div class="form-group">
@@ -83,7 +97,7 @@
     </div>
     <div class="form-group">
         <div class="col-xs-offset-2 col-xs-10">
-            <button type="submit" ng-click="rc.register()" class="btn btn-primary">Register</button>
+            <button ng-disabled="registerForm.$invalid" type="submit" ng-click="rc.register()" class="btn btn-primary">Register</button>
         </div>
     </div>
     {{rc.user}}
