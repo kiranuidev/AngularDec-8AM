@@ -3,6 +3,7 @@
     function registerCtrl(lookupSvc) {
         var vm = this;
         vm.user = {
+            userName:"kiran"
         };
         vm.register = function () {
             console.log(vm.user);
