@@ -37,7 +37,9 @@
             })
             .catch(function (err) {
                 console.log(err);
-            })
+            });
+        
+        vm.helpLineNumber ="9484884848";
 
     }
     angular.module("register")

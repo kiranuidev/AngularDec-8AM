@@ -1,43 +1,41 @@
 <div ng-controller="productsCtrl as pc">
     <div class="row">
-        <!-- <div class="col-xs-6">
-            <div class="thumbnail">
-                <img src="../images/{{item.image}}" alt="Sample Image">
-                <div class="caption">
-                    <h3>{{item.Model |uppercase }}</h3>
-                    <p>{{item.Description |limitTo:pc.minimumChararcters}} <a href="#" ng-click="pc.showMore(item.Description)"> more</a></p>
-                    <p><a href="#" class="btn btn-primary">Share</a> <a href="#" class="btn btn-default">{{item.Price|currency:"$"}}</a></p>
-                </div>
-            </div>
-        </div>-->
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>S.No</th>
-                    <th>Model</th>
-                    <th>Description</th>
-                    <th><a href="#" ng-click="pc.orderByPrice()">Price <i class="glyphicon glyphicon-sort"></i></a></th>
-                    <th><a href="#" ng-click="pc.showMore()">Show More</a></th>
-                </tr>
-            </thead>
-            <tr ng-repeat="item in pc.products|limitTo:pc.minimumProducts |orderBy:pc.orderByCrietria">
-                <td>
-                    {{item.index}}
-                </td>
-                <td>
-                    {{item.Model}}
-                </td>
-                <td>
-                    {{item.Description}}
-                </td>
-                <td>
-                    {{item.Price|currency :"Rs."}}
-                </td>
-                   <td>
-                   <button class="btn btn-warning">Add To cart</button>
-                </td>
+       <div class="col-md-3">
+            <input class="form-control" placeholder="Search"
+                   ng-model="pc.genericSearch">
+        </div>
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Model</th>
+                        <th>Description</th>
+                        <th><a href="#" ng-click="pc.orderByPrice()">Price <i class="glyphicon glyphicon-sort"></i></a></th>
+                        <th><a href="#" ng-click="pc.showMore()">Show More</a></th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="item in pc.products |filter:{Model:pc.genericSearch}
+                               |orderBy:pc.orderByCrietria
+                               |limitTo:pc.minimumProducts">
+                    <td>
+                        {{item.index}}
+                    </td>
+                    <td>
+                        {{item.Model}}
+                    </td>
+                    <td>
+                        {{item.Description}}
+                    </td>
+                    <td>
+                        {{item.Price|currency :"Rs."}}
+                    </td>
+                    <td>
+                        <button class="btn btn-warning">Add To cart</button>
+                    </td>
 
-            </tr>
-        </table>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>

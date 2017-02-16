@@ -3,6 +3,7 @@
     function headerCtrlFn($scope){
       var vm=this;
         vm.brandName="Good Services";
+        vm.phoneNumber="1234567890";
         vm.navItems =["Login","Register","Products","Cart","Logout"];
         vm.loginTemplate ="app/login/login.tpl.html";
           vm.registerTemplate ="app/register/register.tpl.html";
