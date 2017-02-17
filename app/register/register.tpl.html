@@ -25,11 +25,29 @@
             <p ng-show="registerForm.phone.$error.maxlength">Phone number should 10 digits</p>
         </div>
     </div>
-    <div class="form-group">
+    <!--<div class="form-group">
         <label class="control-label col-xs-2">Date of birth</label>
         <div class="col-xs-10">
-            <input type="text" cm-date-picker mindate={{rc.DobRange.mindate}} maxdate={{rc.DobRange.maxdate}} ng-model="rc.user.DOB" class="form-control" placeholder="Date Of Birth">
+            <input type="text" cm-date-picker 
+            mindate={{rc.DobRange.mindate}} 
+            maxdate={{rc.DobRange.maxdate}} 
+            ng-model="rc.user.DOB" class="form-control" placeholder="Date Of Birth">
         </div>
+    </div>-->
+    <div class="form-group">
+         <label class="control-label col-xs-2">Date of birth</label>
+          <p class="input-group">
+          <input type="text" class="form-control" 
+          uib-datepicker-popup="{{rc.dob.format}}" 
+          ng-model="rc.user.DOB" is-open="rc.dob.popup1.opened" 
+          datepicker-options="rc.dob.dateOptions" 
+          ng-required="true" 
+          close-text="Close" 
+           />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="rc.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </p>
     </div>
     <div class="form-group">
         <label class="control-label col-xs-2">Date of Reservation</label>
