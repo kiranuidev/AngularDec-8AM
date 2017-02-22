@@ -1,6 +1,6 @@
 (function(){
     
-    function productsCtrl(productsSvc){
+    function productsCtrl(productsSvc,$rootScope){
         var vm = this;
         productsSvc.getProducts()
         .then( function(res){
@@ -46,9 +46,15 @@
             var minCount = maxCount-10;
             vm.paginatedProducts = vm.products.slice(minCount,maxCount);
         }
+        
+        vm.addToCart = function(item){
+            //send notification on adding item to cart.
+            $rootScope.$broadcast("ITEM-ADDED",item);
+            
+        };
     }
     angular.module("products")
-    .controller("productsCtrl",["productsSvc",productsCtrl]);
+    .controller("productsCtrl",["productsSvc","$rootScope",productsCtrl]);
     
 })();
 

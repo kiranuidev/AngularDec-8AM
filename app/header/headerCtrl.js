@@ -1,10 +1,11 @@
 (function(){
     
-    function headerCtrlFn($scope){
+    function headerCtrlFn($scope,$rootScope){
       var vm=this;
         vm.brandName="Good Services";
         vm.phoneNumber="1234567890";
-        vm.navItems =["Login","Register","Products","Cart","Logout"];
+        vm.cartProducts=[];
+        vm.navItems =["Login","Register","Products","Logout","Cart",];
         vm.loginTemplate ="app/login/login.tpl.html";
           vm.registerTemplate ="app/register/register.tpl.html";
         vm.productsTemplate ="app/products/products.tpl.html";
@@ -23,8 +24,13 @@
         };
         $scope.type=["video"];
         $scope.url="../videos/demo1.mp4";
+        $rootScope.$on("ITEM-ADDED",function(evt,args){
+            console.log(args);
+            vm.cartProducts.push(args);
+        }); 
+        
         
     }
     angular.module("header")
-    .controller("headerCtrl",["$scope",headerCtrlFn]);
+    .controller("headerCtrl",["$scope","$rootScope",headerCtrlFn]);
 })();
