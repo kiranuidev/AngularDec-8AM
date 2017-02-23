@@ -1,6 +1,6 @@
 (function(){
     
-    function headerCtrlFn($scope,$rootScope){
+    function headerCtrlFn($scope,$rootScope,$translate){
       var vm=this;
         vm.brandName="Good Services";
         vm.phoneNumber="1234567890";
@@ -28,9 +28,11 @@
             console.log(args);
             vm.cartProducts.push(args);
         }); 
-        
+        $scope.changeLagunage= function(type){
+          $translate.use(type);
+        }
         
     }
     angular.module("header")
-    .controller("headerCtrl",["$scope","$rootScope",headerCtrlFn]);
+    .controller("headerCtrl",["$scope","$rootScope","$translate",headerCtrlFn]);
 })();

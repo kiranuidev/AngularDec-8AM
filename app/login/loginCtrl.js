@@ -33,7 +33,7 @@
 
     $scope.loginUser=function(){
       //go to the products page.
-      $state.go("products");
+      $state.go("products",{data:"kiran"});
     }
   }
     angular.module("login")

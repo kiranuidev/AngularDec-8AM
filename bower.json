@@ -18,7 +18,9 @@
     "underscore": "^1.8.3",
     "font-awesome": "^4.7.0",
     "angular-ui-router": "^0.4.2",
-  
     "angular-bootstrap": "^2.5.0"
+  },
+  "devDependencies": {
+    "angular-translate": "^2.14.0"
   }
 }

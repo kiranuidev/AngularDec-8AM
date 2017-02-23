@@ -1,6 +1,8 @@
 (function(){
     
-    function productsCtrl(productsSvc,$rootScope){
+    function productsCtrl(productsSvc,$rootScope,$state){
+        
+         console.log($state);
         var vm = this;
         productsSvc.getProducts()
         .then( function(res){
@@ -54,7 +56,8 @@
         };
     }
     angular.module("products")
-    .controller("productsCtrl",["productsSvc","$rootScope",productsCtrl]);
+    .controller("productsCtrl",["productsSvc","$rootScope",
+    "$state",productsCtrl]);
     
 })();
 
