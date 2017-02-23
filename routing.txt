@@ -1,0 +1,19 @@
+1. download the library for ui router
+2. inject the ui.router as a dependency
+3. inject the $stateProvider and $urlRouterProvider to the config function.
+4. declare the state objects
+ ex:  var login = {                templateUrl: "app/login/login.tpl.html"  };
+            var register = { templateUrl: "app/register/register.tpl.html" };
+            var products = { templateUrl: "app/products/products.tpl.html" };
+
+5. define the states
+ $stateProvider.state("login",login);
+        $stateProvider.state("register",register);
+        $stateProvider.state("prodcuts",products);
+
+6. change the header bar urls to 
+    <li><a ui-sref="prodcuts">Products</a></li>
+                  <li><a ui-sref="register">Register</a></li>
+                <li><a ui-sref="login">Login</a></li>
+
+7. in the index.html define <div ui-view></div>
