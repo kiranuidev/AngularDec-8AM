@@ -17,16 +17,16 @@
                 </thead>
                 <tr ng-repeat="item in pc.paginatedProducts">
                     <td>
-                        {{item.index}}
+                        {{::item.index}}
                     </td>
                     <td>
-                        {{item.Model}}
+                        {{::item.Model}}
                     </td>
                     <td>
-                        {{item.Description}}
+                        {{::item.Description}}
                     </td>
                     <td>
-                        {{item.Price|currency :"Rs."}}
+                        {{::item.Price|currency :"Rs."}}
                     </td>
                     <td>
                         <button class="btn btn-warning" ng-click="pc.addToCart(item)">Add To cart</button>
